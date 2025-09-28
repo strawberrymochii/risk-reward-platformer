@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var ui = get_node("$".)  # Change this to your real path
+@onready var ui = get_node($"..".)  # Change this to your real path
 @onready var speed_button = ui.get_node("$Panel/speed")
 @onready var life_button = ui.get_node("$Panel/life")
 
