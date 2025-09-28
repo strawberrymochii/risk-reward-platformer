@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=4 uid="uid://dqd1r6hhrjidn"]
+[gd_scene load_steps=14 format=4 uid="uid://dqd1r6hhrjidn"]
 
 [ext_resource type="Texture2D" uid="uid://mt6xu4nnauv4" path="res://World Assets/Clouds 1/1.png" id="1_lquwl"]
 [ext_resource type="Texture2D" uid="uid://ctbao57iomlup" path="res://World Assets/Clouds 1/2.png" id="2_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c3smoufbo0upm" path="res://World Assets/Clouds 1/4.png" id="3_272bh"]
 [ext_resource type="Texture2D" uid="uid://qfljfwuus8bi" path="res://World Assets/Terrain (16x16).png" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bv7b552qaayso" path="res://World Assets/Idle.png" id="5_kek77"]
+[ext_resource type="Texture2D" uid="uid://bhekc414c4hyx" path="res://player/Screenshot 2025-09-27 at 5.39.35 PM.png" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://sb353gbtypec" path="res://character_body_2d.gd" id="6_272bh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
 texture = ExtResource("4_5vw27")
@@ -188,6 +190,9 @@ size = Vector2(20, 379)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w48qg"]
 size = Vector2(44.5, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(149.00005, 127.000046)
+
 [node name="Node" type="Node"]
 
 [node name="background" type="Sprite2D" parent="."]
@@ -239,6 +244,7 @@ texture = ExtResource("5_kek77")
 [node name="wall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+visible = false
 position = Vector2(5, 63.5)
 shape = SubResource("RectangleShape2D_ycdy4")
 
@@ -258,3 +264,19 @@ texture = ExtResource("5_kek77")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spikes"]
 position = Vector2(336.75, 179)
 shape = SubResource("RectangleShape2D_w48qg")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(224, 403)
+scale = Vector2(0.13670412, 0.13097826)
+texture = ExtResource("6_7mycd")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(224, 403)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(219.5, 406.49997)
+scale = Vector2(0.99999964, 0.9999999)
+shape = SubResource("RectangleShape2D_272bh")
