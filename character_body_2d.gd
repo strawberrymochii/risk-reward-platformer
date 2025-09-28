@@ -30,3 +30,15 @@ func _physics_process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	$Timer.timeout.connect(_on_timer_timeout)
 	print("ok time over")
+	
+	#var time = 
+
+#func _ready():
+	#$CountdownTimer.start(countdown_time)
+	#$CountdownLabel.text = str(countdown_time)
+
+#func _process(delta):
+	#if $CountdownTimer.time_left > 0:
+		#$CountdownLabel.text = str(round($CountdownTimer.time_left))
+	#else:
+		#$CountdownLabel.text = "GO!"  # Or hide it
