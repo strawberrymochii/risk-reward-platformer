@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://yngsga8m5kj6"]
+[gd_scene load_steps=15 format=4 uid="uid://yngsga8m5kj6"]
 
 [ext_resource type="Texture2D" uid="uid://mt6xu4nnauv4" path="res://World Assets/Clouds 1/1.png" id="1_1mhn8"]
 [ext_resource type="Texture2D" uid="uid://ctbao57iomlup" path="res://World Assets/Clouds 1/2.png" id="2_0rof8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bv7b552qaayso" path="res://World Assets/Idle.png" id="5_hi5em"]
 [ext_resource type="Script" uid="uid://sb353gbtypec" path="res://character_body_2d.gd" id="6_bbj40"]
 [ext_resource type="Texture2D" uid="uid://bvn6lf66yc0v6" path="res://player/cat_player_walk1.png" id="7_4fcfw"]
+[ext_resource type="Texture2D" uid="uid://mvbkhxj5ajbp" path="res://Screenshot 2025-09-28 at 7.25.52 AM.png" id="8_0rof8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
 texture = ExtResource("4_l8hla")
@@ -189,6 +190,9 @@ size = Vector2(20, 379)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8hla"]
 size = Vector2(83.75003, 88.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8cd7"]
+size = Vector2(64, 57)
+
 [node name="Node2" type="Node"]
 
 [node name="background" type="Sprite2D" parent="."]
@@ -209,7 +213,7 @@ scale = Vector2(1.4157987, 1.8549383)
 texture = ExtResource("2_0rof8")
 
 [node name="2" type="Sprite2D" parent="background/2"]
-position = Vector2(670.99084, 7)
+position = Vector2(663.23, 2.1564062)
 scale = Vector2(1.3211806, 1)
 texture = ExtResource("2_0rof8")
 
@@ -280,5 +284,33 @@ one_shot = true
 autostart = true
 
 [node name="respawn" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(534, -270)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(46.25, 749.5)
+scale = Vector2(0.1595477, 0.1439394)
+texture = ExtResource("8_0rof8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(46, 749.5)
+shape = SubResource("RectangleShape2D_w8cd7")
+
+[node name="choice1" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="choice1"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="speed" type="Button" parent="choice1/Panel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="life" type="Button" parent="choice1/Panel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

@@ -3,11 +3,15 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: = $Sprite2D
 @onready var respawn: = $"../respawn"
 
-const SPEED = 900.0
-const JUMP_VELOCITY = -400.0
+var speed = 900.0
+var JUMP_VELOCITY = -400.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	
+	var start_pos:Vector2
+	start_pos = position
+	
 	if position.y > 2000:
 		respawn_point()
 	if not is_on_floor():
@@ -23,16 +27,15 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 		
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 		
 
 	move_and_slide()
 	
-	var start_pos:Vector2
-	start_pos = position 
+	 
 func respawn_point():
 	position = Vector2(0, -50)
 	velocity = Vector2.ZERO
