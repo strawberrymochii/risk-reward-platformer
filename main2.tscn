@@ -284,14 +284,14 @@ animation = &"run"
 frame = 2
 frame_progress = 1.0
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(247, 488)
-zoom = Vector2(1, 2)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(247.00002, 489)
 scale = Vector2(0.9999996, 0.9999999)
 shape = SubResource("RectangleShape2D_272bh")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(247, 488)
+zoom = Vector2(1, 2)
 
 [node name="Timer" type="Timer" parent="CharacterBody2D"]
 process_callback = 0

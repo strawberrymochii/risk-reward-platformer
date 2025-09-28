@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -900.0
 
 func _physics_process(delta: float) -> void:
 	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -23,10 +24,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
-	$Timer.start()
-
+		
 func _process(delta):
 	# Animate sprite based on velocity.x
 	if velocity.x != 0:
@@ -34,6 +32,10 @@ func _process(delta):
 		_animated_sprite.flip_h = velocity.x < 0  # Flip if moving left
 	else:
 		_animated_sprite.play("idle")
+	move_and_slide()
+	#$Timer.start()
+
+
 
 	# Input.is_action_pressed("right"):
 		#_animated_sprite.play("run")
