@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=4 uid="uid://bx4ejqg4gpqx3"]
+[gd_scene load_steps=16 format=4 uid="uid://yngsga8m5kj6"]
 
 [ext_resource type="Texture2D" uid="uid://mt6xu4nnauv4" path="res://World Assets/Clouds 1/1.png" id="1_1mhn8"]
 [ext_resource type="Texture2D" uid="uid://ctbao57iomlup" path="res://World Assets/Clouds 1/2.png" id="2_0rof8"]
 [ext_resource type="Texture2D" uid="uid://c3smoufbo0upm" path="res://World Assets/Clouds 1/4.png" id="3_w8cd7"]
 [ext_resource type="Texture2D" uid="uid://qfljfwuus8bi" path="res://World Assets/Terrain (16x16).png" id="4_l8hla"]
 [ext_resource type="Texture2D" uid="uid://bv7b552qaayso" path="res://World Assets/Idle.png" id="5_hi5em"]
-[ext_resource type="Script" path="res://character_body_2d.gd" id="6_bbj40"]
+[ext_resource type="Script" uid="uid://sb353gbtypec" path="res://character_body_2d.gd" id="6_bbj40"]
 [ext_resource type="Texture2D" uid="uid://bvn6lf66yc0v6" path="res://player/cat_player_walk1.png" id="7_4fcfw"]
+[ext_resource type="Texture2D" uid="uid://3r2mmpjst3x1" path="res://player/cat_player_walk2.png" id="9_hi5em"]
+[ext_resource type="Texture2D" uid="uid://1bds1yjpwhhp" path="res://player/cat_player_walk3.png" id="10_bbj40"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
 texture = ExtResource("4_l8hla")
@@ -187,45 +189,25 @@ sources/1 = SubResource("TileSetAtlasSource_efxa6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
 size = Vector2(20, 379)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_pw2xv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_hi5em")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4fcfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bbj40")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
 size = Vector2(85.50003, 88.50001)
-
-[sub_resource type="Animation" id="Animation_kek77"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_5vw27"]
-resource_name = "walk"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4c57u"]
-_data = {
-&"RESET": SubResource("Animation_kek77"),
-&"walk": SubResource("Animation_5vw27")
-}
 
 [node name="Node" type="Node"]
 
@@ -294,24 +276,21 @@ shape = SubResource("RectangleShape2D_ycdy4")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("6_bbj40")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(252.00002, 450)
-scale = Vector2(2.8124986, 2.8125)
-texture = ExtResource("7_4fcfw")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+top_level = true
+position = Vector2(255.49937, 472.49176)
+scale = Vector2(-2.800235, 2.722063)
+sprite_frames = SubResource("SpriteFrames_pw2xv")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(254, 477)
+scale = Vector2(0.99999964, 0.9999999)
+shape = SubResource("RectangleShape2D_272bh")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(224, 403)
 zoom = Vector2(1, 2)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(253, 452)
-scale = Vector2(0.99999964, 0.9999999)
-shape = SubResource("RectangleShape2D_272bh")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_4c57u")
-}
 
 [node name="Timer" type="Timer" parent="CharacterBody2D"]
 process_callback = 0

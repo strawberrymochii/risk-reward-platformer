@@ -26,16 +26,20 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	$Timer.start()
 
-
-func _on_timer_timeout() -> void:
-	$Timer.timeout.connect(_on_timer_timeout)
-	print("ok time over")
+@onready var _animated_sprite = $AnimatedSprite2D
+func _ready():
+	_animated_sprite.play("right")
 	
-	#var time = 
-
-#func _ready():
-	#$CountdownTimer.start(countdown_time)
-	#$CountdownLabel.text = str(countdown_time)
+func _process(_delta):
+	pass
+	# Input.is_action_pressed("right"):
+		#_animated_sprite.play("run")
+	#else:
+		#_animated_sprite.stop()
+		
+#func _on_timer_timeout() -> void:
+	#$Timer.timeout.connect(_on_timer_timeout)
+	#print("ok time over")
 
 #func _process(delta):
 	#if $CountdownTimer.time_left > 0:
