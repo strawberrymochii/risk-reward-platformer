@@ -285,9 +285,24 @@ texture = ExtResource("5_kek77")
 [node name="wall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
-visible = false
 position = Vector2(5, 63.5)
 shape = SubResource("RectangleShape2D_ycdy4")
+
+[node name="spikes" type="Area2D" parent="."]
+
+[node name="spikes" type="StaticBody2D" parent="spikes"]
+
+[node name="Idle2" type="Sprite2D" parent="spikes/spikes"]
+position = Vector2(353, 173)
+texture = ExtResource("5_kek77")
+
+[node name="Idle" type="Sprite2D" parent="spikes/spikes"]
+position = Vector2(332, 172)
+texture = ExtResource("5_kek77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes"]
+position = Vector2(336.75, 179)
+shape = SubResource("RectangleShape2D_w48qg")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("6_272bh")
@@ -299,6 +314,7 @@ texture = ExtResource("6_7mycd")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(224, 403)
+zoom = Vector2(1, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(219.5, 406.49997)
