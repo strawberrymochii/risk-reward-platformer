@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var ui = get_node("$"."")  # Change this to your real path
+@onready var ui = get_node("$".)  # Change this to your real path
 @onready var speed_button = ui.get_node("$Panel/speed")
 @onready var life_button = ui.get_node("$Panel/life")
 
@@ -24,5 +24,5 @@ func _on_speed_pressed():
 func _on_life_pressed():
 	if player:
 		player.lives += 1
-	#ui.visible = false
-		 #queue_free()
+	ui.visible = false
+		 queue_free()

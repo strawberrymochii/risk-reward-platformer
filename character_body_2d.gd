@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 var speed = 900.0
 var JUMP_VELOCITY = -400.0
+var max_health := 3
+var current_health := max_health
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -51,3 +53,17 @@ func life_buttton():
 		animated_sprite_2d.lives += 1
 		#ui.visible = false
 		queue_free()
+		
+func _ready():
+	update_health_display()
+	
+func take_damage(amount: int):
+	current_health -= amount
+	if current_health <= 0:
+		current_health = 0
+		die()
+		update_health_display
+func update_health_display():
+	print("Health: ", current_health)
+func die():
+	print("Game Over!")
