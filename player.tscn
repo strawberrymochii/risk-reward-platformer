@@ -1,33 +1,86 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgb21ptwsydtu"]
+[gd_scene load_steps=7 format=3 uid="uid://dgb21ptwsydtu"]
 
-[ext_resource type="Texture2D" uid="uid://bhekc414c4hyx" path="res://player/Screenshot 2025-09-27 at 5.39.35 PM.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://b8xhqd2x5o7wy" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://sb353gbtypec" path="res://character_body_2d.gd" id="1_hqtel"]
+[ext_resource type="Texture2D" uid="uid://3r2mmpjst3x1" path="res://player/cat_player_walk2.png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bvn6lf66yc0v6" path="res://player/cat_player_walk1.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://1bds1yjpwhhp" path="res://player/cat_player_walk3.png" id="4_1jxqw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(1071, 923)
+[sub_resource type="SpriteFrames" id="SpriteFrames_dw050"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sweqy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sweqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2hs0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1jxqw")
+}],
+"loop": false,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2hs0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sweqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1jxqw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
-[sub_resource type="TileSet" id="TileSet_onrkg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b26j0"]
+size = Vector2(83.75003, 88.25)
 
-[node name="Node" type="Node"]
+[node name="Node2D" type="Node2D"]
 
-[node name="player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_onrkg")
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(8.999999, 186)
+scale = Vector2(0.9900091, 0.97000384)
+script = ExtResource("1_hqtel")
 
-[node name="sprite2D" type="Sprite2D" parent="player"]
-position = Vector2(1372, 860)
-texture = ExtResource("1_4flbx")
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(214.13943, 241.23615)
+scale = Vector2(1.0100917, 1.0309237)
+zoom = Vector2(2, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(1353, 858)
-shape = SubResource("RectangleShape2D_onrkg")
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(222.22017, 243.29799)
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("3_2hs0m")
 
-[node name="Timer" type="Timer" parent="player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+visible = false
+top_level = true
+position = Vector2(224, 412)
+scale = Vector2(2.749158, 2.2631404)
+sprite_frames = SubResource("SpriteFrames_dw050")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(214.13943, 248.45262)
+scale = Vector2(0.9999996, 0.9999999)
+shape = SubResource("RectangleShape2D_b26j0")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+process_callback = 0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-
-[node name="TileMapLayer" type="TileMapLayer" parent="player"]
-tile_set = SubResource("TileSet_onrkg")
-
-[connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
