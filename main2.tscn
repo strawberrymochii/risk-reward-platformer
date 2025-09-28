@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://yngsga8m5kj6"]
+[gd_scene load_steps=16 format=4 uid="uid://yngsga8m5kj6"]
 
 [ext_resource type="Texture2D" uid="uid://mt6xu4nnauv4" path="res://World Assets/Clouds 1/1.png" id="1_1mhn8"]
 [ext_resource type="Texture2D" uid="uid://ctbao57iomlup" path="res://World Assets/Clouds 1/2.png" id="2_0rof8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://sb353gbtypec" path="res://character_body_2d.gd" id="6_bbj40"]
 [ext_resource type="Texture2D" uid="uid://bvn6lf66yc0v6" path="res://player/cat_player_walk1.png" id="7_4fcfw"]
 [ext_resource type="Texture2D" uid="uid://mvbkhxj5ajbp" path="res://Screenshot 2025-09-28 at 7.25.52 AM.png" id="8_0rof8"]
+[ext_resource type="Script" path="res://label.gd" id="9_w8cd7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
 texture = ExtResource("4_l8hla")
@@ -312,5 +313,23 @@ offset_bottom = 8.0
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 15.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Timer"]
+anchors_preset = -1
+anchor_right = 0.054
+anchor_bottom = 0.071
+offset_left = 15.0
+offset_top = 3.0
+offset_right = 127.792
+offset_bottom = 73.992
+text = "genk"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_w8cd7")
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
