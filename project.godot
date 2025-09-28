@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="sacrifice-platformer"
-run/main_scene="uid://dqd1r6hhrjidn"
+run/main_scene="uid://bx4ejqg4gpqx3"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
