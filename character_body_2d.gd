@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 900.0
 const JUMP_VELOCITY = -900.0
+@onready var _animated_sprite = $AnimatedSprite2D
 
 
 func _physics_process(delta: float) -> void:
@@ -26,12 +27,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	$Timer.start()
 
-@onready var _animated_sprite = $AnimatedSprite2D
-func _ready():
-	_animated_sprite.play("right")
-	
-func _process(_delta):
-	pass
+func _process(delta):
+	# Animate sprite based on velocity.x
+	if velocity.x != 0:
+		_animated_sprite.play("run")
+		_animated_sprite.flip_h = velocity.x < 0  # Flip if moving left
+	else:
+		_animated_sprite.play("idle")
+
 	# Input.is_action_pressed("right"):
 		#_animated_sprite.play("run")
 	#else:
