@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bslq204t8ww7w"]
+
+[ext_resource type="Texture2D" uid="uid://cnc4tiryy7hwe" path="res://World Assets/Brown On (32x8).png" id="1_mi635"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8bxr"]
+size = Vector2(136, 8)
+
+[node name="platform" type="AnimatableBody2D"]
+
+[node name="BrownOn(32x8)2" type="Sprite2D" parent="."]
+position = Vector2(1, 6.0000153)
+scale = Vector2(0.51953125, 1.5000007)
+texture = ExtResource("1_mi635")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 6)
+shape = SubResource("RectangleShape2D_s8bxr")
