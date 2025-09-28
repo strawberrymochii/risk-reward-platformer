@@ -1,6 +1,5 @@
-[gd_scene load_steps=17 format=4 uid="uid://bx4ejqg4gpqx3"]
+[gd_scene load_steps=16 format=4 uid="uid://yngsga8m5kj6"]
 
-[ext_resource type="Script" uid="uid://cjpiolawymp7h" path="res://main_2.gd" id="1_0rof8"]
 [ext_resource type="Texture2D" uid="uid://mt6xu4nnauv4" path="res://World Assets/Clouds 1/1.png" id="1_1mhn8"]
 [ext_resource type="Texture2D" uid="uid://ctbao57iomlup" path="res://World Assets/Clouds 1/2.png" id="2_0rof8"]
 [ext_resource type="Texture2D" uid="uid://c3smoufbo0upm" path="res://World Assets/Clouds 1/4.png" id="3_w8cd7"]
@@ -195,6 +194,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("9_hi5em")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_hi5em")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_4fcfw")
@@ -205,13 +212,26 @@ animations = [{
 "loop": false,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4fcfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hi5em")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bbj40")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
 size = Vector2(83.75003, 88.25)
 
 [node name="Node2" type="Node"]
-script = ExtResource("1_0rof8")
 
 [node name="background" type="Sprite2D" parent="."]
 
@@ -282,9 +302,7 @@ top_level = true
 position = Vector2(256, 479)
 scale = Vector2(-2.7689457, 2.3152988)
 sprite_frames = SubResource("SpriteFrames_pw2xv")
-animation = &"run"
-frame = 2
-frame_progress = 1.0
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(247.00002, 489)
