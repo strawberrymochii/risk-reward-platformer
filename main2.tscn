@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=4 uid="uid://yngsga8m5kj6"]
+[gd_scene load_steps=17 format=4 uid="uid://bx4ejqg4gpqx3"]
 
+[ext_resource type="Script" uid="uid://cjpiolawymp7h" path="res://main_2.gd" id="1_0rof8"]
 [ext_resource type="Texture2D" uid="uid://mt6xu4nnauv4" path="res://World Assets/Clouds 1/1.png" id="1_1mhn8"]
 [ext_resource type="Texture2D" uid="uid://ctbao57iomlup" path="res://World Assets/Clouds 1/2.png" id="2_0rof8"]
 [ext_resource type="Texture2D" uid="uid://c3smoufbo0upm" path="res://World Assets/Clouds 1/4.png" id="3_w8cd7"]
@@ -209,7 +210,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
 size = Vector2(83.75003, 88.25)
 
-[node name="Node" type="Node"]
+[node name="Node2" type="Node"]
+script = ExtResource("1_0rof8")
 
 [node name="background" type="Sprite2D" parent="."]
 
