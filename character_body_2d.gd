@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -900.0
 
 
 func _physics_process(delta: float) -> void:
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -23,3 +24,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	$Timer.start()
+
+
+func _on_timer_timeout() -> void:
+	$Timer.timeout.connect(_on_timer_timeout)
+	print("ok time over")

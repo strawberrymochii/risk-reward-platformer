@@ -1,15 +1,15 @@
-[gd_scene load_steps=17 format=4 uid="uid://dqd1r6hhrjidn"]
+[gd_scene load_steps=17 format=4 uid="uid://bx4ejqg4gpqx3"]
 
-[ext_resource type="Texture2D" uid="uid://mt6xu4nnauv4" path="res://World Assets/Clouds 1/1.png" id="1_lquwl"]
-[ext_resource type="Texture2D" uid="uid://ctbao57iomlup" path="res://World Assets/Clouds 1/2.png" id="2_7mycd"]
-[ext_resource type="Texture2D" uid="uid://c3smoufbo0upm" path="res://World Assets/Clouds 1/4.png" id="3_272bh"]
-[ext_resource type="Texture2D" uid="uid://qfljfwuus8bi" path="res://World Assets/Terrain (16x16).png" id="4_5vw27"]
-[ext_resource type="Texture2D" uid="uid://bv7b552qaayso" path="res://World Assets/Idle.png" id="5_kek77"]
-[ext_resource type="Script" uid="uid://sb353gbtypec" path="res://character_body_2d.gd" id="6_272bh"]
-[ext_resource type="Texture2D" uid="uid://bvn6lf66yc0v6" path="res://player/cat_player_walk1.png" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://mt6xu4nnauv4" path="res://World Assets/Clouds 1/1.png" id="1_1mhn8"]
+[ext_resource type="Texture2D" uid="uid://ctbao57iomlup" path="res://World Assets/Clouds 1/2.png" id="2_0rof8"]
+[ext_resource type="Texture2D" uid="uid://c3smoufbo0upm" path="res://World Assets/Clouds 1/4.png" id="3_w8cd7"]
+[ext_resource type="Texture2D" uid="uid://qfljfwuus8bi" path="res://World Assets/Terrain (16x16).png" id="4_l8hla"]
+[ext_resource type="Texture2D" uid="uid://bv7b552qaayso" path="res://World Assets/Idle.png" id="5_hi5em"]
+[ext_resource type="Script" uid="uid://sb353gbtypec" path="res://character_body_2d.gd" id="6_bbj40"]
+[ext_resource type="Texture2D" uid="uid://bvn6lf66yc0v6" path="res://player/cat_player_walk1.png" id="7_4fcfw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
-texture = ExtResource("4_5vw27")
+texture = ExtResource("4_l8hla")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -172,7 +172,7 @@ texture = ExtResource("4_5vw27")
 20:10/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efxa6"]
-texture = ExtResource("5_kek77")
+texture = ExtResource("5_hi5em")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
@@ -237,32 +237,32 @@ _data = {
 [node name="1" type="Sprite2D" parent="background"]
 position = Vector2(532, 321.625)
 scale = Vector2(1.8715279, 2.033179)
-texture = ExtResource("1_lquwl")
+texture = ExtResource("1_1mhn8")
 
 [node name="1" type="Sprite2D" parent="background/1"]
 position = Vector2(824.99445, -1.2785378)
 scale = Vector2(1.8715279, 0.99450535)
-texture = ExtResource("1_lquwl")
+texture = ExtResource("1_1mhn8")
 
 [node name="2" type="Sprite2D" parent="background"]
 position = Vector2(407.99997, 261)
 scale = Vector2(1.4157987, 1.8549383)
-texture = ExtResource("2_7mycd")
+texture = ExtResource("2_0rof8")
 
 [node name="2" type="Sprite2D" parent="background/2"]
 position = Vector2(670.99084, 7)
 scale = Vector2(1.3211806, 1)
-texture = ExtResource("2_7mycd")
+texture = ExtResource("2_0rof8")
 
 [node name="4" type="Sprite2D" parent="background"]
 position = Vector2(343.25, 456.25)
 scale = Vector2(1.0998263, 0.99537045)
-texture = ExtResource("3_272bh")
+texture = ExtResource("3_w8cd7")
 
 [node name="4" type="Sprite2D" parent="background/4"]
 position = Vector2(664.2248, -3.49646)
 scale = Vector2(1.328993, 1.0725309)
-texture = ExtResource("3_272bh")
+texture = ExtResource("3_w8cd7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -276,7 +276,7 @@ tile_set = SubResource("TileSet_dg77c")
 
 [node name="Idle" type="Sprite2D" parent="TileMapLayer"]
 position = Vector2(385, 159)
-texture = ExtResource("5_kek77")
+texture = ExtResource("5_hi5em")
 
 [node name="wall" type="StaticBody2D" parent="."]
 
@@ -290,23 +290,23 @@ shape = SubResource("RectangleShape2D_ycdy4")
 
 [node name="Idle2" type="Sprite2D" parent="spikes/spikes"]
 position = Vector2(353, 173)
-texture = ExtResource("5_kek77")
+texture = ExtResource("5_hi5em")
 
 [node name="Idle" type="Sprite2D" parent="spikes/spikes"]
 position = Vector2(332, 172)
-texture = ExtResource("5_kek77")
+texture = ExtResource("5_hi5em")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spikes"]
 position = Vector2(336.75, 179)
 shape = SubResource("RectangleShape2D_w48qg")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("6_272bh")
+script = ExtResource("6_bbj40")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(252.00002, 450)
 scale = Vector2(2.8124986, 2.8125)
-texture = ExtResource("7_272bh")
+texture = ExtResource("7_4fcfw")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(224, 403)
