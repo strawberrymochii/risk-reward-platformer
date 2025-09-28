@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://yngsga8m5kj6"]
+[gd_scene load_steps=17 format=4 uid="uid://yngsga8m5kj6"]
 
 [ext_resource type="Texture2D" uid="uid://mt6xu4nnauv4" path="res://World Assets/Clouds 1/1.png" id="1_1mhn8"]
 [ext_resource type="Texture2D" uid="uid://ctbao57iomlup" path="res://World Assets/Clouds 1/2.png" id="2_0rof8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://sb353gbtypec" path="res://character_body_2d.gd" id="6_bbj40"]
 [ext_resource type="Texture2D" uid="uid://bvn6lf66yc0v6" path="res://player/cat_player_walk1.png" id="7_4fcfw"]
 [ext_resource type="Texture2D" uid="uid://mvbkhxj5ajbp" path="res://Screenshot 2025-09-28 at 7.25.52 AM.png" id="8_0rof8"]
+[ext_resource type="Script" uid="uid://casj7gd4aarxl" path="res://choice_1.gd" id="9_l8hla"]
 [ext_resource type="Script" path="res://label.gd" id="9_w8cd7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
@@ -299,6 +300,7 @@ position = Vector2(46, 749.5)
 shape = SubResource("RectangleShape2D_w8cd7")
 
 [node name="choice1" type="CanvasLayer" parent="."]
+script = ExtResource("9_l8hla")
 
 [node name="Panel" type="Panel" parent="choice1"]
 offset_right = 40.0
