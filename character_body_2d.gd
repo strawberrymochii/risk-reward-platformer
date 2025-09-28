@@ -39,3 +39,15 @@ func _physics_process(delta: float) -> void:
 func respawn_point():
 	position = Vector2(0, -50)
 	velocity = Vector2.ZERO
+	
+func speed_button():
+	if animated_sprite_2d:
+		animated_sprite_2d.speed += 200
+		ui.visible = false
+		queue_free()  # <- removes the power-up from the world
+
+func life_buttton():
+	if animated_sprite_2d:
+		animated_sprite_2d.lives += 1
+		ui.visible = false
+		queue_free()
