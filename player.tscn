@@ -11,16 +11,18 @@ size = Vector2(1071, 923)
 [node name="player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_onrkg")
 
-[node name="Sprite2D" type="Sprite2D" parent="player"]
-position = Vector2(1258, 1378)
+[node name="sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(1372, 860)
 texture = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(1262, 1380.5)
+position = Vector2(1353, 858)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Timer" type="Timer" parent="player"]
 one_shot = true
 autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="player"]
 
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
